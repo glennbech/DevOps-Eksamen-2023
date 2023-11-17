@@ -29,10 +29,8 @@ jobs:
           aws-region: eu-west-1
         
       - name: Set up SAM
+        uses: aws-actions/setup-sam@v1
         run: |
           pip install aws-sam-cli
-        
-      - name: Build and deploy SAM application
-        run: |
           sam build --use-container
           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-sentiment-kandidat_2030 --s3-bucket lambda-deployments-gb --capabilities CAPABILITY_IAM --region eu-west-1
