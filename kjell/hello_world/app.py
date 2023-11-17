@@ -18,7 +18,7 @@ s3_client = boto3.client('s3', region_name='eu-west-1')
 rekognition_client = boto3.client('rekognition', region_name='eu-west-1')
 
 # Oppgave 1A
-BUCKET_NAME = os.environ.get('BUCKET_NAME', 'default_bucket_name')
+BUCKET_NAME = os.environ.get('BUCKET_NAME', 'kandidat-2030')
 
 
 def create_s3_bucket(bucket_name):
