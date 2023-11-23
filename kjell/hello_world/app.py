@@ -11,9 +11,9 @@ import os
 # Open up template.yaml
 # change the BucketName line 22 from kandidat-2030 to something you prefer if you want
 # to test the python code type: cd DevOps-Eksamen-2023/kjell/hello_world then type: python3 app.py
-# to test the sam invoke type: cd DevOps-Eksamen-2023/kjell then type: 
+# to test the sam invoke type: cd DevOps-Eksamen-2023/kjell then type: sam local invoke HelloWorldFunction --event events/event.json
 #
-# Hilsen Kjell
+# Hilsen kandidat-2030 and Kjell
 
 s3_client = boto3.client('s3', region_name='eu-west-1')
 rekognition_client = boto3.client('rekognition', region_name='eu-west-1')

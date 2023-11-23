@@ -25,8 +25,7 @@ jobs:
           aws-region: eu-west-1
         
       - name: Set up SAM
-        run: |
-          pip install aws-sam-cli
+        run: pip install aws-sam-cli
           
       - name: Set BUCKET_NAME for SAM deploy
         run: echo "BUCKET_NAME=kandidat-2030" >> $GITHUB_ENV
