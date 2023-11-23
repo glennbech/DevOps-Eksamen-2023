@@ -8,9 +8,10 @@ import os
 # Instruksjoner for å kjøre ... (Kan sikkert lage container senere ..)
 #
 # pip3 install -r requirements.txt
-# export BUCKET_NAME=<you_bucket>
-# echo $BUCKET_NAME
-# python3 app.py
+# Open up template.yaml
+# change the BucketName line 22 from kandidat-2030 to something you prefer if you want
+# to test the python code type: cd DevOps-Eksamen-2023/kjell/hello_world then type: python3 app.py
+# to test the sam invoke type: cd DevOps-Eksamen-2023/kjell then type: 
 #
 # Hilsen Kjell
 
@@ -18,30 +19,28 @@ s3_client = boto3.client('s3', region_name='eu-west-1')
 rekognition_client = boto3.client('rekognition', region_name='eu-west-1')
 
 # Oppgave 1A
-BUCKET_NAME = os.environ.get('BUCKET_NAME', 'kandidat-2030')
+BUCKET_NAME = os.environ.get('BUCKET_NAME')
+print("BUCKET_NAME:", BUCKET_NAME)
 
-
-def create_s3_bucket(bucket_name):
+if BUCKET_NAME:
     try:
-        location_constraint = s3_client.meta.region_name  # Use the current region
-        s3_client.create_bucket(
-            Bucket=bucket_name,
-            CreateBucketConfiguration={'LocationConstraint': location_constraint}
-        )
-        print(f"Bucket '{bucket_name}' created successfully.")
-    except s3_client.exceptions.BucketAlreadyOwnedByYou as e:
-        print(f"Bucket '{bucket_name}' already exists.")
+        s3_client.head_bucket(Bucket=BUCKET_NAME)
+        print(f"Bucket '{BUCKET_NAME}' exists, now running the bucket.")
+    except s3_client.exceptions.NoSuchBucket:
+        print(f"Bucket '{BUCKET_NAME}' does not exist. You may want to create it before running your application.")
     except Exception as e:
-        print(f"Error creating bucket '{bucket_name}': {str(e)}")
-
+        print(f"Error checking bucket '{BUCKET_NAME}': {str(e)}")
 
 def lambda_handler(event, context):
+    print("Environment Variables:", os.environ)
+    BUCKET_NAME = os.environ.get('BUCKET_NAME')
+    # Check if BUCKET_NAME is set
+    if not BUCKET_NAME:
+        return {
+            "statusCode": 500,
+            "body": "Environment variable BUCKET_NAME is not set."
+        }
     
-    
-    # Create S3 bucket if it doesn't exist
-    create_s3_bucket(BUCKET_NAME)
-
-
     # List all objects in the S3 bucket
     paginator = s3_client.get_paginator('list_objects_v2')
     rekognition_results = []  # Store the results
