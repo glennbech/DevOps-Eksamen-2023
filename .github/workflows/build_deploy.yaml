@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
-      # Add this step to list the contents of the repository and find the correct path
+      # Add this step to list the contents of the repository and visualise the correct path
       - name: List repository contents
         run: ls -R
         
@@ -36,6 +36,6 @@ jobs:
       
       - name: Build and deploy SAM application
         run: |
-          cd DevOps-Eksamen-2023
+          cd kjell
           sam build --use-container
           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-sentiment-kandidat_2030 --s3-bucket lambda-deployments-gb --capabilities CAPABILITY_IAM --region eu-west-1
