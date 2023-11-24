@@ -32,5 +32,6 @@ jobs:
       
       - name: Build and deploy SAM application
         run: |
+          cd DevOps-Eksamen-2023
           sam build --use-container
           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-sentiment-kandidat_2030 --s3-bucket lambda-deployments-gb --capabilities CAPABILITY_IAM --region eu-west-1
