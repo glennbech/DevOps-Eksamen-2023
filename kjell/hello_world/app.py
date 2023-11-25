@@ -5,16 +5,16 @@ import os
 # Denne koden kan også kjøres som en selvstendig applikasjon (Uten SAM) bare gjøre følgende
 # (dersom man har python på maskinen sin altså...)
 #
-# Instruksjoner for å kjøre ... (Kan sikkert lage container senere ..)
+# Instruksjoner for å kjøre ...
 #
 # pip3 install -r requirements.txt
 # Open up template.yaml
-# change the BucketName line 22 from kandidat-2030 to something you prefer if you want
+# change the BucketName line 27 in template.yaml from kandidat-2030 to something you prefer if you want
 # To set a local environment variable type: export BUCKET_NAME="kandidat-2030"
 # to test the python code type: cd DevOps-Eksamen-2023/kjell/hello_world then type: python3 app.py
 # to test the sam invoke type: cd DevOps-Eksamen-2023/kjell then type: sam local invoke HelloWorldFunction --event events/event.json
 #
-# Hilsen kandidat-2030 and Kjell
+# Hilsen kandidat-2030 og Kjell
 
 s3_client = boto3.client('s3', region_name='eu-west-1')
 rekognition_client = boto3.client('rekognition', region_name='eu-west-1')

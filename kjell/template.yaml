@@ -1,9 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  kjell
-
-  Sample SAM Template for kjell
+  Sample SAM Template for kandidat-2030
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -37,6 +35,7 @@ Resources:
         - x86_64
       Policies:
         - AmazonRekognitionFullAccess
+        - AmazonS3FullAccess
       Environment:
         Variables:
           BUCKET_NAME: !Ref Bucket
