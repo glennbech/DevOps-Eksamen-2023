@@ -11,8 +11,12 @@ Globals:
     Timeout: 60
     MemorySize: 512
 
-Resources:
+Parameters:
+  BUCKET_NAME:
+    Type: String
+    Default: kandidat-2030
 
+Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:

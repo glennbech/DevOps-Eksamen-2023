@@ -10,6 +10,7 @@ import os
 # pip3 install -r requirements.txt
 # Open up template.yaml
 # change the BucketName line 22 from kandidat-2030 to something you prefer if you want
+# To set a local environment variable type: export BUCKET_NAME="kandidat-2030"
 # to test the python code type: cd DevOps-Eksamen-2023/kjell/hello_world then type: python3 app.py
 # to test the sam invoke type: cd DevOps-Eksamen-2023/kjell then type: sam local invoke HelloWorldFunction --event events/event.json
 #
