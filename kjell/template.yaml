@@ -15,6 +15,9 @@ Parameters:
   MyBucketName:
     Type: String
     Default: kandidat-2030
+    
+Conditions:
+  UseEnvironmentVariable: !Equals [!Ref MyBucketName, ""]
 
 Resources:
   Bucket:
