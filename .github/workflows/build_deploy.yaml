@@ -32,7 +32,7 @@ jobs:
         run: pip install aws-sam-cli
           
       - name: Set BUCKET_NAME for SAM deploy
-        run: echo "BUCKET_NAME=kandidat-2030" >> $GITHUB_ENV
+        run: echo "MyBucketName=kandidat-2030" >> $GITHUB_ENV
       
       - name: Build and deploy SAM application
         run: |
