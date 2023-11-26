@@ -38,4 +38,4 @@ jobs:
         run: |
           cd kjell
           sam build --use-container
-          sam deploy --guided --region eu-west-1
+          sam deploy sam deploy --config-file samconfig.toml --no-confirm-changeset --no-fail-on-empty-changeset
