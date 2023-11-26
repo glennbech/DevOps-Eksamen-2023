@@ -38,4 +38,4 @@ jobs:
         run: |
           cd kjell
           sam build --use-container
-          sam deploy --guided
+          sam deploy --guided --region eu-west-1
