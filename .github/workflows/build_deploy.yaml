@@ -36,11 +36,12 @@ jobs:
         run: echo "MyBucketName=kandidat-2030" >> $GITHUB_ENV
       
       - name: Build SAM application
-        run: cd kjell && sam build --use-container
-      
-      - name: Build and deploy SAM application
-        if: github.ref == 'refs/heads/main'
         run: |
           cd kjell
           sam build --use-container
+      
+      - name: Deploy SAM application
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cd kjell
           sam deploy sam deploy --config-file samconfig.toml --no-confirm-changeset --no-fail-on-empty-changeset
