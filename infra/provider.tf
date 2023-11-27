@@ -10,7 +10,5 @@ terraform {
     bucket         = "kandidat-2030"
     key            = "kandidat-2030/terraform.tfstate"
     region         = "eu-west-1"
-    encrypt        = true
-    dynamodb_table = "terraform_locks"
   }
 }
