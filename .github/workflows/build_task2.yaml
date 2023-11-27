@@ -60,6 +60,7 @@ jobs:
         id: plan
         run: |
           cd infra
+          terraform init
           terraform plan -var="prefix=${{ env.PREFIX }}" -var="image=${{ env.IMAGE }}" -no-color
         continue-on-error: true
 
