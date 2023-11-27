@@ -27,7 +27,7 @@ jobs:
         run: aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 244530008913.dkr.ecr.eu-west-1.amazonaws.com
     
       - name: Push the Docker image to ECR
-        if: github.ref == "refs/heads/main"
+        if: github.ref == 'refs/heads/main'
         run: |
             COMMIT_HASH=$(git rev-parse --short=8 HEAD)
             IMAGE_URI=244530008913.dkr.ecr.eu-west-1.amazonaws.com/kandidat-2030
