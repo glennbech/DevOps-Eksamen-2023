@@ -71,4 +71,7 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -var="prefix=${{ env.PREFIX }}" -var="image=${{ env.IMAGE }}" -auto-approve
+        run: |
+          cd infra
+          terraform apply -var="prefix=${{ env.PREFIX }}" -var="image=${{ env.IMAGE }}" -auto-approve
+        
