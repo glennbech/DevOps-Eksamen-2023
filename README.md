@@ -79,7 +79,7 @@ skriv ```echo $BUCKET_NAME``` for å se om riktig variabelen ble satt.
 
 * For å teste Github Actions må du gjøre en endring på prosjektet, så kan du lagre CTRL + S og ta ```git add``` for å legge til endringen.
 * Så må du comitte endringen ```git commit -m"kommentar her"``` og ```git push``` for å sende in endringen.
-* Nå kan du gå inn på Guihub Actions og se at workflows filene jobber med on: push: main: hvis du commited til main branch.
+* Nå kan du gå inn på Github Actions og se at workflows filene jobber med on: push: main: hvis du commited til main branch.
 
 # Oppgave 5
 
