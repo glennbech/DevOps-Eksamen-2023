@@ -1,6 +1,6 @@
 version = 0.1
 [default.deploy.parameters]
-stack_name = "sam-kandidat-2030"
+stack_name = "sam-kandidat-2030s"
 resolve_s3 = true
 s3_prefix = "sam-kandidat-2030"
 region = "eu-west-1"
